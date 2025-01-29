@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analock-clock</title>
+    <style>
+        .clock {
+            margin-top: 50px;
+            margin-left: 450px;
+        }
+
+
+        #hour {
+            height: 107px;
+            width: 12px;
+            margin-top: -397px;
+            margin-left: 296px;
+            background-color: red;
+            position: absolute;
+            transform-origin: bottom;
+            border-radius: 30px;
+        }
+
+        #minute {
+            height: 128px;
+            width: 8px;
+            margin-top: -420px;
+            margin-left: 299px;
+            background-color: blue;
+            position: absolute;
+            transform-origin: bottom;
+            border-radius: 15px;
+        }
+
+
+        #second {
+            height: 166px;
+            width: 4px;
+            margin-top: -458px;
+            margin-left: 300px;
+            background-color: black;
+            position: absolute;
+            transform-origin: bottom;
+            border-radius: 10px;
+        }
+
+        #mid {
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            background-color: black;
+            margin-left: 295px;
+            margin-top: -298px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <img width="600px" src="clock.png" alt="clock">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+        <div id="mid"></div>
+    </div>
+    <script>
+
+        function myDate() {
+            var hour = document.getElementById("hour");
+            var minute = document.getElementById("minute");
+            var second = document.getElementById("second");
+
+
+            var date = new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+
+            hour.style.transform = `rotate(${30 * h + m / 2}deg)`;
+            minute.style.transform = `rotate(${6 * m}deg)`;
+            second.style.transform = `rotate(${6 * s}deg)`;
+
+
+        }
+        setInterval("myDate()", 1000);
+
+    </script>
+
+</body>
+
+</html>
